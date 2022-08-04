@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8">
+        <title>Find Your Flag: 너의 플래그를 찾아봐! 🏳️🏴🏴‍☠️🏁🚩🏳️‍🌈🇺🇳 - 프라이드 플래그 찾기</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com"> 
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="./css/bootstrap01.css">
+        <link rel="stylesheet" href="./css/bootstrap.min.css">
+        <style>
+            .flex-row {
+                display: flex;
+            }
+            .margin-10 {
+                margin: 10px;
+            }
+            * {
+                font-family: 'Noto Sans KR', sans-serif;
+            }
+        </style>
+        <script src="search-pride.js"></script>
+    </head>
+    <body style="background-color: floralwhite;" id="container">
+        <main class="container">
+            <h1>Find Your Flag: 너의 플래그를 찾아봐! 🏳️🏴🏴‍☠️🏁🚩🏳️‍🌈🇺🇳</h1>
+            <a class="btn btn-primary" href="main.html" role="button">메인으로</a>
+            <p><h5>성별 정체성 및 성적 지향 등의 자긍심을 나타내는 프라이드 플래그를 찾으러 오신 당신, 잘 오셨습니다. 
+                이곳에서는 몇 가지 질문들을 통해서 당신의 플래그를 찾아 드리려고 합니다. 
+                아래의 질문들에 솔직하게 응답하여 주시면 감사하겠습니다.</h5></p>
+            <div> <!-- 질문 문항들 -->
+                <h3>1. 당신은 태어날 때 어떤 성별로 지정받았습니까?</h3>
+                <select class="form-select" id="assigned-sex" aria-label="Default select example" onchange="sayAssignedSex(this.value);">
+                    <option value="na" selected>== 아래 선지 중 하나를 선택해 주세요. ==</option>
+                    <option value="F">여성</option>
+                    <option value="M">남성</option>
+                    <option value="I">인터섹스</option>
+                    <option value="idk">모름</option>
+                    <option value="na">응답하지 않음</option>
+                  </select>
+                  <br>
+            </div>
+            <div>
+                <h3>2. 당신은 현재 어느 성별 정체성으로 정체화하였습니까?</h3>
+                <select class="form-select" id="gender" aria-label="Default select example" onchange="sayGender(this.value);">
+                    <option value="na" selected>== 아래 선지 중 하나를 선택해 주세요. ==</option>
+                    <option value="F">여성</option>
+                    <option value="M">남성</option>
+                    <option value="enby">논바이너리 및 젠더퀴어</option>
+                    <option value="androgyne">여성과 남성에 둘 다 해당하는 논바이너리 및 젠더퀴어</option>
+                    <option value="neutrois">여성도 남성도 아닌 논바이너리 및 젠더퀴어</option>
+                    <option value="demiF">여성 정체감이 강한 논바이너리 및 젠더퀴어</option>
+                    <option value="demiM">남성 정체감이 강한 논바이너리 및 젠더퀴어</option>
+                    <option value="fluid">때에 따라서 바뀜</option>
+                    <option value="A">없음</option>
+                    <option value="idk">모름</option>
+                    <option value="na">응답하지 않음</option>
+                  </select>
+                  <br>
+            </div>
+            <div>
+                <h3>3. 당신의 로맨틱 끌림을 가장 잘 설명해 주는 선지는 무엇입니까?</h3>
+                <select class="form-select" id="romantic" aria-label="Default select example" onchange="sayRomantic(this.value);">
+                    <option value="na" selected>== 아래 선지 중 하나를 선택해 주세요. ==</option>
+                    <option value="F">여성에 끌림</option>
+                    <option value="F-flexible">여성에 더 많이 끌리는 편</option>
+                    <option value="M">남성에 끌림</option>
+                    <option value="M-flexible">남성에 더 많이 끌리는 편</option>
+                    <option value="bi">여성과 남성에 끌림</option>
+                    <option value="poly">여러 성별에 끌림</option>
+                    <option value="pan">모든 성별에 끌림</option>
+                    <option value="demi">끌림을 약하게 느낌</option>
+                    <option value="aro">아무에게도 끌리지 않음</option>
+                    <option value="idk">모름</option>
+                    <option value="na">응답하지 않음</option>
+                  </select>
+                  <br>
+            </div>
+            <div>
+                <h3>4. 당신의 성적 끌림을 가장 잘 설명해 주는 선지는 무엇입니까?</h3>
+                <select class="form-select" id="sexual" aria-label="Default select example" onchange="saySexual(this.value);">
+                    <option value="na" selected>== 아래 선지 중 하나를 선택해 주세요. ==</option>
+                    <option value="F">여성에 끌림</option>
+                    <option value="F-flexible">여성에 더 많이 끌리는 편</option>
+                    <option value="M">남성에 끌림</option>
+                    <option value="M-flexible">남성에 더 많이 끌리는 편</option>
+                    <option value="bi">여성과 남성에 끌림</option>
+                    <option value="poly">여러 성별에 끌림</option>
+                    <option value="pan">모든 성별에 끌림</option>
+                    <option value="demi">끌림을 약하게 느낌</option>
+                    <option value="ace">아무에게도 끌리지 않음</option>
+                    <option value="idk">모름</option>
+                    <option value="na">응답하지 않음</option>
+                  </select>
+                  <br>
+            </div>
+            <div>
+                <h3>5. 당신은 여러 사람에게 끌림을 느끼는 편입니까?</h3>
+                <select class="form-select" id="amory" aria-label="Default select example" onchange="sayAmory(this.value);">
+                    <option value="na" selected>== 아래 선지 중 하나를 선택해 주세요. ==</option>
+                    <option value="poly">여러 사람에게 끌림</option>
+                    <option value="mono">한 사람에게만 끌림</option>
+                    <option value="A">아무에게도 끌리지 않음</option>
+                    <option value="idk">모름</option>
+                    <option value="na">응답하지 않음</option>
+                  </select>
+                  <br>
+            </div>
+            <div>
+                <h3>6. 당신은 신경다양인으로 정체화하였습니까?</h3>
+                <select class="form-select" id="neuro" aria-label="Default select example" onchange="sayNeuro(this.value);">
+                    <option value="na" selected>== 아래 선지 중 하나를 선택해 주세요. ==</option>
+                    <option value="diverse">신경다양인으로 정체화함</option>
+                    <option value="typical">신경다양인으로 정체화하지 않음</option>
+                    <option value="idk">모름</option>
+                    <option value="na">응답하지 않음</option>
+                  </select>
+                  <br>
+            </div> <!-- 답안 제출 -->
+            <div style="text-align: center">
+                <a class="btn btn-primary btn-lg" id="submit"
+                onclick="result(document.getElementById('assigned-sex').value,
+                document.getElementById('gender').value,
+                document.getElementById('romantic').value,
+                document.getElementById('sexual').value,
+                document.getElementById('amory').value,
+                document.getElementById('neuro').value)"
+                role="button">응답 완료, 제출!</a>
+            </div>
+            <div id="result-print" style="display: none;"> <!-- 결과 출력 -->
+                <hr>
+                <h3 style="text-align: center;">당신의 프라이드 플래그는 바로... 아래에!!!</h3>
+                <h6 style="text-align: center;">주의: 일부 플래그는 당신의 정체성과 맞지 않을 수도 있습니다.</h6>
+                <div style="display: flex; flex-wrap: wrap;">
+                    <!-- 무지개 -->
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="rainbow-flag">
+                        <img src="./prideFlagImage/RainbowFlag.png" class="card-img-top" alt="무지개 플래그 (성소수자 프라이드 플래그)">
+                        <div class="card-body">
+                            <h5 class="card-title">무지개 플래그 (성소수자 프라이드 플래그)</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="extended-rainbow-flag">
+                        <img src="./prideFlagImage/blg_inline_multitude_colours_celebrating_many_pride_flags_03.png" class="card-img-top" alt="확장된 무지개 플래그 (확장된 성소수자 프라이드 플래그)">
+                        <div class="card-body">
+                            <h5 class="card-title">확장된 무지개 플래그 (확장된 성소수자 프라이드 플래그)</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <!-- 앨라이 -->
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="ally-flag">
+                        <img src="./prideFlagImage/Straight_Ally_flag.svg.png" class="card-img-top" alt="앨라이 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">앨라이 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="trans-ally-flag">
+                        <img src="./prideFlagImage/Trangender_ally_flag.svg.png" class="card-img-top" alt="트랜스 앨라이 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">트랜스 앨라이 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <!-- 성별 정체성과 인터섹스 플래그 -->
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="intersex-flag">
+                        <img src="./prideFlagImage/gender/2880px-Intersex_Pride_Flag.svg.png" class="card-img-top" alt="인터섹스 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">인터섹스 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="trans-flag">
+                        <img src="./prideFlagImage/gender/2880px-Transgender_Pride_flag.svg.png" class="card-img-top" alt="트랜스젠더 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">트랜스젠더 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="enby-flag">
+                        <img src="./prideFlagImage/gender/2880px-Nonbinary_flag.svg.png" class="card-img-top" alt="논바이너리 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">논바이너리 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="genderqueer-flag">
+                        <img src="./prideFlagImage/gender/2880px-Genderqueer_Pride_Flag.svg.png" class="card-img-top" alt="젠더퀴어 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">젠더퀴어 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="androgyne-flag">
+                        <img src="./prideFlagImage/gender/Androgyne.png" class="card-img-top" alt="안드로진 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">안드로진 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="neutrois-flag">
+                        <img src="./prideFlagImage/gender/Neutrois.png" class="card-img-top" alt="뉴트로이스 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">뉴트로이스 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="demigirl-flag">
+                        <img src="./prideFlagImage/gender/Demigirl_Flag.svg.png" class="card-img-top" alt="데미걸 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">데미걸 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="demiboy-flag">
+                        <img src="./prideFlagImage/gender//Demiboy_Flag.svg.png" class="card-img-top" alt="데미보이 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">데미보이 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="genderfluid-flag">
+                        <img src="./prideFlagImage/gender/Genderfluidity_Pride-Flag.svg.png" class="card-img-top" alt="젠더플루이드 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">젠더플루이드 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="agender-flag">
+                        <img src="./prideFlagImage/gender/2746px-Agender_pride_flag.svg.png" class="card-img-top" alt="에이젠더 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">에이젠더 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="quoigender-flag">
+                        <img src="./prideFlagImage/gender/Quoigender.png" class="card-img-top" alt="콰이젠더 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">콰이젠더 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <!-- 로맨틱 및 섹슈얼 플래그 -->
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="lesbian-flag">
+                        <img src="./prideFlagImage/sexual/Lesbian_Pride_Flag_2019.svg.png" class="card-img-top" alt="레즈비언 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">레즈비언 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="lesbian-labrys-flag">
+                        <img src="./prideFlagImage/sexual/Lesbian_pride_labrys_flag.svg.png" class="card-img-top" alt="레즈비언 프라이드 플래그 (라브리스)">
+                        <div class="card-body">
+                            <h5 class="card-title">레즈비언 프라이드 플래그 (라브리스)</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="gayMan-flag">
+                        <img src="./prideFlagImage/sexual/Gay_men_pride_flag.png" class="card-img-top" alt="게이 남성 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">게이 남성 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="homoromantic-flag">
+                        <img src="./prideFlagImage/romantic/homoromantic__1__by_pride_flags-da0ebga-1024x614.png" class="card-img-top" alt="호모로맨틱 (동성로맨틱) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">호모로맨틱 (동성로맨틱) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="heteroromantic-flag">
+                        <img src="./prideFlagImage/romantic/Heteroromantic_flag_by_Itz_henka_gacha.webp" class="card-img-top" alt="헤테로로맨틱 (이성로맨틱) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">헤테로로맨틱 (이성로맨틱) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="heterosexual-flag">
+                        <img src="./prideFlagImage/sexual/2560px-Heterosexual_flag_(black-white_stripes).svg.png" class="card-img-top" alt="헤테로섹슈얼 (이성애) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">헤테로섹슈얼 (이성애) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="biromantic-flag">
+                        <img src="./prideFlagImage/romantic/Biromantic_flag.webp" class="card-img-top" alt="바이로맨틱 (양성로맨틱) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">바이로맨틱 (양성로맨틱) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="bisexual-flag">
+                        <img src="./prideFlagImage/sexual/Bisexual_Pride_Flag.svg.png" class="card-img-top" alt="바이섹슈얼 (양성애) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">바이섹슈얼 (양성애) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="polyromantic-flag">
+                        <img src="./prideFlagImage/romantic/Polyromantic.webp" class="card-img-top" alt="폴리로맨틱 (다성로맨틱) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">폴리로맨틱 (다성로맨틱) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="polysexual-flag">
+                        <img src="./prideFlagImage/sexual/2880px-Polysexuality_Pride_Flag.svg.png" class="card-img-top" alt="폴리섹슈얼 (다성애) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">폴리섹슈얼 (다성애) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="panromantic-flag">
+                        <img src="./prideFlagImage/romantic/Panromantic_Pride_Flag.webp" class="card-img-top" alt="팬로맨틱 (범성로맨틱) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">팬로맨틱 (범성로맨틱) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="pansexual-flag">
+                        <img src="./prideFlagImage/sexual/Pansexuality_Pride_Flag.svg.png" class="card-img-top" alt="팬섹슈얼 (범성애) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">팬섹슈얼 (범성애) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="demiromantic-flag">
+                        <img src="./prideFlagImage/romantic/Bandeira_Demirromantica.jpg" class="card-img-top" alt="데미로맨틱 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">데미로맨틱 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="demisexual-flag">
+                        <img src="./prideFlagImage/sexual/2560px-Demisexual_Pride_Flag.svg.png" class="card-img-top" alt="데미섹슈얼 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">데미섹슈얼 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="aromantic-flag">
+                        <img src="./prideFlagImage/romantic/2880px-Aromantic_Pride_Flag.svg.png" class="card-img-top" alt="에이로맨틱 (무성로맨틱) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">에이로맨틱 (무성로맨틱) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="asexual-flag">
+                        <img src="./prideFlagImage/sexual/2880px-Asexual_Pride_Flag.svg.png" class="card-img-top" alt="에이섹슈얼 (무성애) 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">에이섹슈얼 (무성애) 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="quoiromantic-flag">
+                        <img src="./prideFlagImage/romantic/Quoiromantic.png" class="card-img-top" alt="콰로맨틱 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">콰로맨틱 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="quoisexual-flag">
+                        <img src="./prideFlagImage/sexual/Quoisexual.png" class="card-img-top" alt="콰섹슈얼 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">콰섹슈얼 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <!-- 폴리아모리 및 모노가미 여부 플래그 -->
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="polyamory-flag">
+                        <img src="./prideFlagImage/amory/1280px-Polyamory_Pride_Flag.svg.png" class="card-img-top" alt="폴리아모리 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">폴리아모리 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="monogami-flag">
+                        <img src="./prideFlagImage/amory/Monogami.webp" class="card-img-top" alt="모노가미 프라이드 플래그">
+                        <div class="card-body">
+                            <h5 class="card-title">모노가미 프라이드 플래그</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <!-- 신경다양성 여부 플래그 -->
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="autism1-flag">
+                        <img src="./prideFlagImage/neuro/640px-Autism_pride_flag.svg.png" class="card-img-top" alt="자폐 프라이드 플래그 (1)">
+                        <div class="card-body">
+                            <h5 class="card-title">자폐 프라이드 플래그 (1)</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="autism2-flag">
+                        <img src="./prideFlagImage/neuro/Autistic_Pride_Flag.png" class="card-img-top" alt="자폐 프라이드 플래그 (2)">
+                        <div class="card-body">
+                            <h5 class="card-title">자폐 프라이드 플래그 (2)</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 32%; margin: 10px 5px; display: none;" id="autism3-flag">
+                        <img src="./prideFlagImage/neuro/The_Autistic_Pride_Flag.png" class="card-img-top" alt="자폐 프라이드 플래그 (3)">
+                        <div class="card-body">
+                            <h5 class="card-title">자폐 프라이드 플래그 (3)</h5>
+                            <p class="card-text">설명</p>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <div style="text-align: center;">
+                    <a class="btn btn-primary btn-lg" href="find.html" role="button">다른 플래그 찾기</a>
+                </div>
+            </div>
+            <br>
+            <a href="https://twitter.com/104arb" target="_blank" style="text-decoration-line: none;"> <!-- 트위터 링크 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+                    <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                </svg>
+              개발자 트위터 (@104arb)
+            </a>
+            &nbsp;
+            <a href="https://github.com/104arb/findYourFlag" target="_blank" style="text-decoration-line: none;"> <!-- 깃허브 링크 -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-github" viewBox="0 0 16 16">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+                </svg>
+            깃허브 프로젝트 Repository
+            </a>
+        </main>
+    </body>
+</html>
